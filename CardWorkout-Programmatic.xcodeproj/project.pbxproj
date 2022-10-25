@@ -14,6 +14,8 @@
 		21C77B7229085AD4007F5978 /* CardWorkout_ProgrammaticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C77B7129085AD4007F5978 /* CardWorkout_ProgrammaticTests.swift */; };
 		21C77B7C29085AD4007F5978 /* CardWorkout_ProgrammaticUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C77B7B29085AD4007F5978 /* CardWorkout_ProgrammaticUITests.swift */; };
 		21C77B7E29085AD4007F5978 /* CardWorkout_ProgrammaticUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C77B7D29085AD4007F5978 /* CardWorkout_ProgrammaticUITestsLaunchTests.swift */; };
+		21C77B8B29085E6B007F5978 /* CardSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C77B8A29085E6B007F5978 /* CardSelectionVC.swift */; };
+		21C77B8F29086191007F5978 /* CWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C77B8E29086191007F5978 /* CWButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		21C77B7729085AD4007F5978 /* CardWorkout-ProgrammaticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CardWorkout-ProgrammaticUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C77B7B29085AD4007F5978 /* CardWorkout_ProgrammaticUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWorkout_ProgrammaticUITests.swift; sourceTree = "<group>"; };
 		21C77B7D29085AD4007F5978 /* CardWorkout_ProgrammaticUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWorkout_ProgrammaticUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		21C77B8A29085E6B007F5978 /* CardSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSelectionVC.swift; sourceTree = "<group>"; };
+		21C77B8E29086191007F5978 /* CWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 			children = (
 				21C77B5A29085AD3007F5978 /* AppDelegate.swift */,
 				21C77B5C29085AD3007F5978 /* SceneDelegate.swift */,
+				21C77B8E29086191007F5978 /* CWButton.swift */,
+				21C77B8A29085E6B007F5978 /* CardSelectionVC.swift */,
 				21C77B6329085AD4007F5978 /* Assets.xcassets */,
 				21C77B6529085AD4007F5978 /* LaunchScreen.storyboard */,
 				21C77B6829085AD4007F5978 /* Info.plist */,
@@ -253,6 +259,8 @@
 			files = (
 				21C77B5B29085AD3007F5978 /* AppDelegate.swift in Sources */,
 				21C77B5D29085AD3007F5978 /* SceneDelegate.swift in Sources */,
+				21C77B8B29085E6B007F5978 /* CardSelectionVC.swift in Sources */,
+				21C77B8F29086191007F5978 /* CWButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
