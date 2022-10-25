@@ -11,7 +11,7 @@ class CWButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        translatesAutoresizingMaskIntoConstraints = false //use auto layout
         
     }
     
@@ -19,19 +19,19 @@ class CWButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     //its a diff init so must call configure again
-    init (to title: String,is foregroundColor: UIColor, on backgroundColor: UIColor){
+    init (_ title: String,is foregroundColor: UIColor, on backgroundColor: UIColor, with image: String){
         super.init(frame: .zero)
-        self.backgroundColor = backgroundColor
-        setTitle(title, for: .normal)
-        configure()
-    }
-    
-    func configure(){
-        layer.cornerRadius = 8.0
-        titleLabel?.font = .systemFont(ofSize: 19, weight: .bold)
-        setTitleColor(.white, for: .normal)
+        configuration = .tinted()
+        configuration?.title = title
+        configuration?.baseForegroundColor = foregroundColor
+        configuration?.baseBackgroundColor = backgroundColor
+        configuration?.cornerStyle = .capsule
+        configuration?.image = UIImage(systemName: image)
+        configuration?.imagePadding = 4
+        configuration?.imagePlacement = .trailing
         translatesAutoresizingMaskIntoConstraints = false //use auto layout
     }
+    
   
 
 }

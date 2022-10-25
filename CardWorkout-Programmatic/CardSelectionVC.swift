@@ -8,10 +8,15 @@
 import UIKit
 
 class CardSelectionVC: UIViewController {
+    // UI components
     let cardImageView   = UIImageView()
-    let stopButton      = CWButton(to: "Stop", is: .systemRed, on: .systemRed)
-    let restartButton   = CWButton(to: "Restart", is: .systemGreen, on: .systemGreen)
-    let rulesButton     = CWButton(to: "", is: .systemBlue, on: .systemBlue)
+    let stopButton      = CWButton("", is: .systemRed, on: .systemRed, with: "stop")
+    let restartButton   = CWButton("", is: .systemGreen, on: .systemGreen, with: "play")
+    let rulesButton     = CWButton("", is: .systemBlue, on: .systemBlue, with: "list.bullet")
+    //timer
+    var timer: Timer! // TODO: force unwrap for some reason (check vid for reason)
+    var cards: [UIImage] = Card.allCards
+    var isTimerRunning: Bool = false
     
     
     override func viewDidLoad() {
@@ -46,11 +51,13 @@ class CardSelectionVC: UIViewController {
         //name and color already configured
         //constraints
         NSLayoutConstraint.activate([
-            stopButton.widthAnchor.constraint(equalToConstant: 100),
+            stopButton.widthAnchor.constraint(equalToConstant: 50),
             stopButton.heightAnchor.constraint(equalToConstant: 50),
             stopButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -35),
             stopButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -25)
         ])
+        //target
+        stopButton.addTarget(self, action: #selector(stopTimer), for: .touchUpInside)
     }
 
     func configureRestartButton () {
@@ -59,11 +66,13 @@ class CardSelectionVC: UIViewController {
         // name/color
         //constraints
         NSLayoutConstraint.activate([
-            restartButton.widthAnchor.constraint(equalToConstant: 100),
+            restartButton.widthAnchor.constraint(equalToConstant: 50),
             restartButton.heightAnchor.constraint(equalToConstant: 50),
             restartButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 35),
             restartButton.centerYAnchor.constraint(equalTo: stopButton.centerYAnchor)
         ])
+        //target
+        restartButton.addTarget(self, action: #selector(startTimer), for: .touchUpInside)
     }
     
     func configureRulesButton(){
@@ -84,5 +93,21 @@ class CardSelectionVC: UIViewController {
         let rulesVC = RulesVC()
         //present means modal
         present(rulesVC, animated: true)
+    }
+    
+    @objc func startTimer() {
+        if isTimerRunning{
+            stopTimer()
+        }
+        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(showRandomCard), userInfo: nil, repeats: true)
+        restartButton.configuration?.image = UIImage(systemName: "arrow.counterclockwise")
+        isTimerRunning = true
+    }
+    @objc func stopTimer(){
+        timer.invalidate()
+        restartButton.configuration?.image = UIImage(systemName: "play")
+    }
+    @objc func showRandomCard(){
+        cardImageView.image = cards.randomElement() ?? UIImage(named: "AS")
     }
 }
